@@ -190,7 +190,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-Made with ❤️ by Your Name
+Made with ❤️ by Rajeshkanaka
 </p>
 
-> 💡 **Note**: Replace placeholder images, usernames, and customize the badges according to your actual repository details.
+
