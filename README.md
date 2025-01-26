@@ -10,7 +10,7 @@
 > Enterprise-grade system performance monitoring with real-time analytics and beautiful visualizations 📊
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yourusername/system-performance-sentinel/main/docs/assets/banner.png" alt="Performance Sentinel Banner">
+  <img src="perfcard01.png" alt="Performance Sentinel Banner">
 </div>
 
 ## ✨ Features
