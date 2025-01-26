@@ -259,8 +259,8 @@ def generate_html_report(timestamps, cpu_data, mem_data, swap_data, disk_data, n
 
 def main():
     parser = argparse.ArgumentParser(description="Performance Monitoring Script")
-    parser.add_argument("--duration", type=int, default=15,
-                        help="Duration in minutes to run the monitoring (default: 15).")
+    parser.add_argument("--duration", type=int, default=2,
+                        help="Duration in minutes to run the monitoring (default: 2).")
     parser.add_argument("--interval", type=int, default=5,
                         help="Interval in seconds between metric collections (default: 5).")
     args = parser.parse_args()

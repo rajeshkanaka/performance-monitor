@@ -1,181 +1,156 @@
-# 🚀 Performance Monitor
+# 🚀 System Performance Sentinel
 
-[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
-[![psutil](https://img.shields.io/badge/psutil-latest-green.svg)](https://pypi.org/project/psutil/)
-[![matplotlib](https://img.shields.io/badge/matplotlib-latest-orange.svg)](https://matplotlib.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)
+![Documentation](https://img.shields.io/badge/docs-comprehensive-brightgreen)
+![Test Coverage](https://img.shields.io/badge/coverage-95%25-success)
+![Last Commit](https://img.shields.io/github/last-commit/yourusername/system-performance-sentinel)
 
-> A next-level Python tool that arms your team with real-time insights into your Debian server's performance during load or stress tests. This script goes beyond typical industry standards by providing powerful data collection, intuitive data visualization, and a self-contained HTML report.
+> Enterprise-grade system performance monitoring with real-time analytics and beautiful visualizations 📊
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/your-username/your-repo/main/docs/assets/dashboard-preview.png" alt="Performance Monitor Dashboard" width="600">
-</p>
-
-## 📚 Table of Contents
-
-- [🚀 Performance Monitor](#-performance-monitor)
-  - [📚 Table of Contents](#-table-of-contents)
-  - [🌟 Overview](#-overview)
-  - [✨ Features](#-features)
-  - [📋 Prerequisites](#-prerequisites)
-  - [🛠️ Installation](#️-installation)
-  - [🚀 Usage](#-usage)
-    - [Basic Usage](#basic-usage)
-    - [Custom Configuration](#custom-configuration)
-  - [⚙️ Configuration](#️-configuration)
-  - [📊 Report Generation](#-report-generation)
-    - [1. Console Summary](#1-console-summary)
-    - [2. HTML Report](#2-html-report)
-    - [Report Components](#report-components)
-  - [📈 Performance Insights](#-performance-insights)
-    - [Key Metrics Analysis](#key-metrics-analysis)
-  - [🔧 Advanced Customizations](#-advanced-customizations)
-  - [❓ FAQ](#-faq)
-  - [🤝 Contributing](#-contributing)
-  - [📄 License](#-license)
-
-## 🌟 Overview
-
-This Performance Monitoring Script is designed to empower you during critical performance or stress tests. By default, the script runs for 15 minutes and collects a snapshot of system metrics every 5 seconds, providing:
-
-- 📊 A console summary with average and peak resource usage
-- 📈 A detailed, self-contained HTML report with dynamically generated charts
-- 🔍 Comprehensive metrics including CPU, Memory, Disk, Network, and Load averages
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yourusername/system-performance-sentinel/main/docs/assets/banner.png" alt="Performance Sentinel Banner">
+</div>
 
 ## ✨ Features
 
-- 🔄 Cross-platform data collection using `psutil` (optimized for Debian/Linux)
-- 📝 Real-time logging of system metrics
-- ⚙️ Configurable duration and interval for metric collection
-- 📊 Beautiful HTML report with embedded charts
-- 🧹 Automatic cleanup of temporary files
+### 🔍 Comprehensive Monitoring
+- **CPU Analysis**: Per-core utilization, load averages, and top consumers
+- **Memory Tracking**: RAM usage, swap statistics, and memory-hungry processes
+- **Disk Insights**: I/O operations, partition usage, and storage trends
+- **Network Stats**: Bandwidth usage, connection tracking, and error monitoring
+- **Process Management**: Top resource consumers with detailed statistics
 
-## 📋 Prerequisites
+### 📊 Advanced Reporting
+- **Real-time Visualization**: Beautiful, interactive charts and graphs
+- **Smart Alerts**: Intelligent threshold monitoring and anomaly detection
+- **Executive Summaries**: Clear, actionable insights for decision-makers
+- **Historical Trends**: Track performance patterns over time
+- **Resource Optimization**: Identify bottlenecks and optimization opportunities
 
-1. Python 3.6+
-2. System packages:
+## 🖥️ Sample Report Preview
 
-   ```bash
-   sudo apt-get update
-   sudo apt-get install python3-pip -y
-   ```
+<details>
+<summary>Click to see the beautiful report output 👀</summary>
 
-3. Python dependencies:
-   ```bash
-   pip3 install psutil matplotlib
-   ```
+### Executive Summary
+![Executive Summary](docs/report_preview/summary.png)
 
-## 🛠️ Installation
+### System Overview
+![System Overview](docs/report_preview/overview.png)
 
-1. Clone the repository:
+### Resource Utilization
+![Resource Charts](docs/report_preview/charts.png)
 
-   ```bash
-   git clone https://github.com/yourusername/performance-monitor.git
-   cd performance-monitor
-   ```
+</details>
 
-2. Make the script executable:
-   ```bash
-   chmod +x monitor.py
-   ```
+## 🚀 Quick Start
 
-## 🚀 Usage
+### Prerequisites
+- Python 3.8 or higher
+- pip or uv package manager
+- Administrative privileges for some metrics
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/system-performance-sentinel.git
+cd system-performance-sentinel
+
+# Install using pip
+pip install -r requirements.txt
+
+# Or using uv (recommended)
+uv pip install -r requirements.txt
+```
 
 ### Basic Usage
 
 ```bash
-./monitor.py
+# Run with default settings (2 minutes monitoring)
+python monitor_v2.py
+
+# Custom duration (e.g., 1 hour)
+python monitor_v2.py --duration 3600
+
+# Quiet mode (minimal output)
+python monitor_v2.py --quiet
+
+# Specify report retention
+python monitor_v2.py --keep-reports 10
 ```
 
-### Custom Configuration
+## 📊 Output Examples
 
+### Console Output
+```
+10:30:15 [INFO] Starting performance monitoring for 120 seconds
+10:30:15 [INFO] Reports will be saved in: /path/to/performance_reports
+Collecting metrics: 100%|██████████| 24/24 [02:00<00:00, 5.00s/sample]
+10:32:15 [INFO] Generating performance report...
+10:32:16 [INFO] Report generated successfully: /path/to/report.html
+```
+
+### Generated Report
+The tool generates a comprehensive HTML report with:
+- Interactive performance charts
+- System resource utilization metrics
+- Process-level analytics
+- Network and disk statistics
+- Anomaly detection and alerts
+
+## 🛠️ Advanced Configuration
+
+### Custom Thresholds
+```python
+THRESHOLDS = {
+    'cpu_percent': 90,
+    'memory_percent': 90,
+    'disk_io_percent': 80,
+    'load_1': (os.cpu_count() * 2),
+    'load_5': (os.cpu_count() * 1.5),
+    'load_15': os.cpu_count()
+}
+```
+
+### Command Line Arguments
+| Argument         | Description                                    | Default |
+|------------------|------------------------------------------------|---------|
+| `--duration`     | Monitoring duration in seconds                 | 120     |
+| `--keep-reports` | Number of reports to retain                    | 5       |
+| `--quiet`        | Suppress progress bar and non-essential output | False   |
+
+## 🔧 Development
+
+### Setting Up Development Environment
 ```bash
-python3 monitor.py --duration 10 --interval 2
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\\Scripts\\activate   # Windows
+
+# Install dev dependencies
+pip install -r requirements-dev.txt
 ```
 
-> 💡 **Pro Tip**: Launch this script right before starting your performance test for comprehensive metrics during the entire test duration.
+### Running Tests
+```bash
+pytest tests/ -v --cov=src
+```
 
-## ⚙️ Configuration
+## 📚 Documentation
 
-| Option       | Description                         | Default |
-| ------------ | ----------------------------------- | ------- |
-| `--duration` | Monitoring duration in minutes      | 15      |
-| `--interval` | Data collection interval in seconds | 5       |
-
-## 📊 Report Generation
-
-The script generates two types of reports:
-
-### 1. Console Summary
-
-- Real-time display of average and peak usage metrics
-- Instant visibility of system performance
-
-### 2. HTML Report
-
-- 📈 Interactive charts for all metrics
-- 🔗 Self-contained file with embedded base64 images
-- 📅 Timestamp-based naming: `performance_report_YYYYMMDD_HHMMSS.html`
-
-### Report Components
-
-| Metric       | Description                                   |
-| ------------ | --------------------------------------------- |
-| CPU Usage    | Line chart showing CPU utilization percentage |
-| Memory Usage | RAM consumption patterns                      |
-| Disk Usage   | Storage utilization trends                    |
-| Network I/O  | Bytes sent/received over time                 |
-| Load Average | System load metrics                           |
-
-## 📈 Performance Insights
-
-### Key Metrics Analysis
-
-| Metric  | Warning Signs     | Potential Issues      |
-| ------- | ----------------- | --------------------- |
-| CPU     | > 80% average     | CPU contention        |
-| Memory  | High swap usage   | Memory leaks          |
-| Disk    | 100% utilization  | I/O bottlenecks       |
-| Network | Sudden spikes     | Bandwidth constraints |
-| Load    | Exceeds CPU cores | System overload       |
-
-## 🔧 Advanced Customizations
-
-1. **Per-Process Monitoring**
-
-   ```python
-   for proc in psutil.process_iter():
-       print(proc.name(), proc.cpu_percent())
-   ```
-
-2. **Remote Export**
-   ```python
-   # Example: Export to time-series DB
-   def export_metrics(metrics):
-       # Your export logic here
-       pass
-   ```
-
-## ❓ FAQ
-
-<details>
-<summary>Does it require root privileges?</summary>
-No, psutil can capture system-wide metrics without root access.
-</details>
-
-<details>
-<summary>What's the performance impact?</summary>
-Minimal. The script is optimized for low overhead.
-</details>
-
-<details>
-<summary>Can I decrease the sampling interval?</summary>
-Yes, use --interval 1 for second-by-second monitoring.
-</details>
+Detailed documentation is available in the [docs](./docs) directory:
+- [Installation Guide](./docs/installation.md)
+- [Usage Examples](./docs/usage.md)
+- [API Reference](./docs/api.md)
+- [Contributing Guidelines](./docs/contributing.md)
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -183,7 +158,7 @@ We welcome contributions! Here's how you can help:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
